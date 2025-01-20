@@ -4,13 +4,11 @@ jobs:
   cypress-run:
     runs-on: ubuntu-22.04
     steps:
-      # Checkout do código com suporte a submódulos
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
-        
-      # Instalação de dependências e execução dos testes
       - name: Cypress run
         uses: cypress-io/github-action@v6
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
         with:
-          install: true           # Instalar dependências automaticamente
-          runTests: true          # Executar os testes automaticamente
+          command: npm run test:cloud
