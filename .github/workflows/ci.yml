@@ -7,9 +7,7 @@ jobs:
       # Checkout do código com suporte a submódulos
       - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          submodules: recursive  # Garante que os submódulos sejam inicializados e atualizados
-
+        
       # Instalação de dependências e execução dos testes
       - name: Cypress run
         uses: cypress-io/github-action@v6
